@@ -10,14 +10,14 @@ A. Kilian, A.R. Lang, A. Bryan, and R. Stimmelmayr.  To be submitted to Evolutio
 The Bearded_CKMR/data directory includes data necessary to conduct CKMR analysis using bearded seal data.
 The files there include
 
--Maturity.csv: This table provides information on sexual maturity of ice seals in Alaska (from Conn and Trukhanova 2023)
--MHS_matches.csv: This table defines maternal half-sibling / grandparent-grandchild pairs; the row indices provided index different rows in Samples.csv
--PHS_matches.csv: Same as above, but for paternal half-sibling pairs.
--POP_matches.csv: Same as above, but for parent-offspring pairs
--Reproduction_table.csv: This table provides female fecundity schedules for ice seals in Alaska (from Conn and Trukhanova 2023)
--Samples.csv: This table provides data for all bearded seals successfully genotyped, inclding age, sex, date of harvest, and location of harvest
--Spring_pups_info.csv: This table provides information on individuals used to resolve age of pups relative to our assumed population model age increment
--Survival_ests.csv: This table provides natural mortality estimates for ice seals in Alaska, including bearded seals (from Trukhanova et al. 2018)
+- Maturity.csv: This table provides information on sexual maturity of ice seals in Alaska (from Conn and Trukhanova 2023)
+- MHS_matches.csv: This table defines maternal half-sibling / grandparent-grandchild pairs; the row indices provided index different rows in Samples.csv
+- PHS_matches.csv: Same as above, but for paternal half-sibling pairs.
+- POP_matches.csv: Same as above, but for parent-offspring pairs
+- Reproduction_table.csv: This table provides female fecundity schedules for ice seals in Alaska (from Conn and Trukhanova 2023)
+- Samples.csv: This table provides data for all bearded seals successfully genotyped, inclding age, sex, date of harvest, and location of harvest
+- Spring_pups_info.csv: This table provides information on individuals used to resolve age of pups relative to our assumed population model age increment
+- Survival_ests.csv: This table provides natural mortality estimates for ice seals in Alaska, including bearded seals (from Trukhanova et al. 2018)
 
 ## Analysis 
 There are two steps in conducting CKMR analysis of bearded seal data.  First, raw bearded seal data are 
