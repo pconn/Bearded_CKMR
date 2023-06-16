@@ -1,0 +1,142 @@
+Our_sample,MONTH,DATE,YEAR,AgeCbeardo18,AgeType,ToothAgeQuality,Age1,Age2,Adjusted aging comments
+DIO-017-03,MAY,11-May-03,2003,0,Tooth,,,,Aged by Lara not Matson's-don't have teeth
+DIO-022-02,MAY,20-May-02,2002,0,Tooth,,,,Aged by Lara not Matson's-don't have teeth
+DIO-027-02,MAY,20-May-02,2002,0,Tooth,,,,Aged by Lara not Matson's-don't have teeth
+DIO-028-02,MAY,20-May-02,2002,0,Tooth,,,,Aged by Lara not Matson's-don't have teeth
+DIO-029-02,MAY,20-May-02,2002,0,Tooth,,,,Aged by Lara not Matson's-don't have teeth
+DIO-036-02,MAY,22-May-02,2002,0,Tooth,,,,Aged by Lara not Matson's-don't have teeth
+DIO-040-03,MAY,25-May-03,2003,0,Tooth,,,,Aged by Lara not Matson's-don't have teeth
+DIO-046-02,MAY,24-May-02,2002,0,Tooth,,,,Aged by Lara not Matson's-don't have teeth
+G01-0035,MAY,22-May-01,2001,0,Tooth,,,,Aged by Lara not Matson's-don't have teeth
+HB-008-03,APR,30-Apr-03,2003,0,Tooth,,,,Aged by Lara not Matson's-don't have teeth
+HB-009-03,APR,30-Apr-03,2003,0,Tooth,,,,Aged by Lara not Matson's-don't have teeth
+S03-0354,MAY,18-May-03,2003,0,Tooth,,,,Aged by Lara not Matson's-don't have teeth
+SH-B09-03,MAY,20-May-03,2003,0,Tooth,,,,Aged by Lara not Matson's-don't have teeth
+SV-001-03,MAY,13-May-03,2003,0,Tooth,,,,Aged by Lara not Matson's-don't have teeth
+DIO-022-04,MAY,27-May-04,2004,0,Tooth,A,,,Weeks
+DIO-024-04,MAY,27-May-04,2004,0,Tooth,A,,,Weeks
+DIO-025-04,MAY,27-May-04,2004,0,Tooth,A,,,Weeks
+DIO-038-04,MAY,30-May-04,2004,0,Tooth,A,,,Weeks
+DIO-042-04,MAY,29-May-04,2004,0,Tooth,A,,,Weeks
+SH-M05-03,MAY,,2003,0,Tooth,A,,,Weeks
+SH-M08-03,MAY,,2003,0,Tooth,A,,,Weeks
+SV-004-03,MAY,20-May-03,2003,0,Tooth,A,,,Weeks
+SV-007-03,MAY,23-May-03,2003,0,Tooth,A,,,Weeks
+EB20GAM005,Spring,,2020,0,Tooth,A,,,Weeks
+EB20GAM020,APR,14-Apr-20,2020,0,Tooth,A,,,11 months
+EB20GAM021,MAY,27-May-20,2020,0,Tooth,A,,,Weeks
+EB20GAM023,MAY,23-May-20,2020,0,Tooth,A,,,Weeks
+EB20GAM025,MAY,23-May-20,2020,0,Tooth,A,,,Weeks
+EB20GAM026,MAY,25-May-20,2020,0,Tooth,A,,,Weeks
+EB20GAM027,MAY,2-May-20,2020,0,Tooth,A,,,Weeks
+EB20GAM046,MAY,4-May-20,2020,0,Tooth,A,,,Weeks
+EB20GAM047,MAY,29-May-20,2020,0,Tooth,A,,,Weeks
+EB20GAM052,MAY,4-May-20,2020,0,Tooth,A,,,Weeks
+EB09DIO001,MAY,3-May-09,2009,0,Tooth,A,,,11 months
+EB09DIO004,MAY,30-May-09,2009,0,Tooth,A,,,Weeks
+EB09DIO007,MAY,30-May-09,2009,0,Tooth,A,,,Weeks
+EB09DIO008,MAY,30-May-09,2009,0,Tooth,A,,,Weeks
+EB09DIO011,MAY,31-May-09,2009,0,Tooth,A,,,Weeks
+EB09DIO012,MAY,31-May-09,2009,0,Tooth,A,,,Weeks
+EB09DIO013,MAY,31-May-09,2009,0,Tooth,A,,,Weeks
+EB14DIO001,MAY,29-May-14,2014,0,Tooth,A,,,Weeks
+EB14GAM012,Spring,,2014,0,Tooth,A,,,11 months
+EB14GAM025,Spring,,2014,0,Tooth,A,,,11 months
+EB14GAM029,Spring,,2014,0,Tooth,A,,,Weeks
+EB14GAM030,MAY,23-May-14,2014,0,Tooth,A,,,Weeks
+EB14GAM031,Spring,,2014,0,Tooth,A,,,Weeks
+EB14GAM032,Spring,,2014,0,Tooth,A,,,Weeks
+EB14GAM035,MAY,22-May-14,2014,0,Tooth,A,,,Weeks
+EB14GAM036,MAY,22-May-14,2014,0,Tooth,A,,,Weeks
+EB14GAM037,Spring,,2014,0,Tooth,A,,,Weeks
+EB14GAM038,MAY,18-May-14,2014,0,Tooth,A,,,Weeks
+EB14GAM039,Spring,,2014,0,Tooth,A,,,Weeks
+EB14GAM041,Spring,,2014,0,Tooth,A,,,Weeks
+EB14GAM042,MAY,21-May-14,2014,0,Tooth,A,,,Weeks
+EB14GAM044,Spring,,2014,0,Tooth,A,,,Weeks
+EB14GAM045,MAY,23-May-14,2014,0,Tooth,A,,,Weeks
+EB14GAM047,MAY,23-May-14,2014,0,Tooth,A,,,Weeks
+EB14GAM048,MAY,23-May-14,2014,0,Tooth,A,,,Weeks
+EB14GAM049,Spring,,2014,0,Tooth,A,,,Weeks
+EB14GAM050,Spring,,2014,0,Tooth,A,,,Weeks
+EB14GAM051,MAY,22-May-14,2014,0,Tooth,A,,,Weeks
+EB14GAM052,MAY,25-May-14,2014,0,Tooth,A,,,Weeks
+EB18GAM005,APR,27-Apr-18,2018,0,Tooth,A,,,Weeks
+EB18GAM009,MAR,6-Mar-18,2018,0,Tooth,A,,,11 months
+EB18HB001,APR,5-Apr-18,2018,0,Tooth,A,,,11 months
+SAV-004-04,MAY,13-May-04,2004,0,Tooth,A,,,Weeks
+SH-S12-04,MAY,21-May-04,2004,0,Tooth,A,,,Weeks
+SH-S14-04,MAY,23-May-04,2004,0,Tooth,A,,,Weeks
+EB18GAM011,MAY,30-May-18,2018,0,Tooth,A,,,weeks
+EB18GAM013,APR,27-Apr-18,2018,0,Tooth,A,,,Weeks
+EB18GAM015,Spring,,2018,0,Tooth,A,,,Weeks
+EB18GAM019,MAY,2-May-18,2018,0,Tooth,A,,,Weeks
+EB15GAM009,Spring,,2015,0,Tooth,A,,,Weeks
+EB14GAM057,MAY,25-May-14,2014,0,Tooth,A,,,Weeks
+EB14GAM062,MAY,23-May-14,2014,0,Tooth,A,,,Weeks
+SH-S24-06,MAY,30-May-06,2006,0,Tooth,A,,,11 months
+EB11GAM012,APR,25-Apr-11,2011,0,Tooth,A,,,11 months
+EB11SH017,MAY,31-May-11,2011,0,Tooth,A,,,Weeks
+EB13GAM040,MAY,3-May-13,2013,0,Tooth,A,,,Weeks
+SH-K09-05,MAY,28-May-05,2005,0,Tooth,A,,,Weeks
+EB17GAM015,MAY,3-May-17,2017,0,Tooth,A,,,Weeks
+EB17GAM016,MAY,9-May-17,2017,0,Tooth,A,,,Weeks
+EB17GAM019,MAY,3-May-17,2017,0,Tooth,A,,,Weeks
+EB17GAM023,MAR,12-Mar-17,2017,0,Tooth,A,,,11 months
+EB17GAM024,MAR,26-Mar-17,2017,0,Tooth,A,,,11 months
+EB17GAM026,APR,28-Apr-17,2017,0,Tooth,A,,,Weeks
+EB17GAM028,MAR,26-Mar-17,2017,0,Tooth,A,,,11 months
+EB17GAM030,APR,10-Apr-17,2017,0,Tooth,A,,,11 months
+EB17GAM033,MAR,26-Mar-17,2017,0,Tooth,A,,,11 months
+EB17GAM035,MAY,18-May-17,2017,0,Tooth,A,,,Weeks
+EB17GAM036,MAY,15-May-17,2017,0,Tooth,A,,,Weeks
+EB17GAM037,MAY,15-May-17,2017,0,Tooth,A,,,Weeks
+EB17GAM039,MAY,25-May-17,2017,0,Tooth,A,,,11 months
+EB17GAM040,MAY,24-May-17,2017,0,Tooth,A,,,Weeks
+EB17GAM043,MAY,15-May-17,2017,0,Tooth,A,,,Weeks
+EB17GAM044,MAY,15-May-17,2017,0,Tooth,A,,,Weeks
+EB17GAM047,MAY,14-May-17,2017,0,Tooth,A,,,Weeks
+EB17GAM049,MAY,15-May-17,2017,0,Tooth,A,,,Weeks
+EB17GAM051,MAY,17-May-17,2017,0,Tooth,A,,,Weeks
+EB17GAM052,MAY,,2017,0,Tooth,A,,,Weeks
+EB17GAM053,MAY,25-May-17,2017,0,Tooth,A,,,Weeks
+EB17GAM056,MAY,25-May-17,2017,0,Tooth,A,,,Weeks
+SH-K09-05,MAY,28-May-05,2005,0,Tooth,A,,,Weeks
+SH-S09-05,MAY,29-May-05,2005,0,Tooth,A,,,Weeks
+EB16GAM011,MAY,14-May-16,2016,0,Tooth,A,,,Weeks
+EB16GAM018,Spring,,2016,0,Tooth,B,0,1,11 months
+EB16GAM021,MAR,10-Mar-16,2016,0,Tooth,A,,,11 months
+EB16GAM024,APR,16-Apr-16,2016,0,Tooth,B,0,1,11 months
+EB16GAM051,MAY,22-May-16,2016,0,Tooth,A,,,Weeks
+EB08DIO001,MAY,31-May-08,2008,0,Tooth,A,,,Weeks
+EB15GAM002,MAY,7-May-15,2015,0,Tooth,A,,,Weeks
+EB15GAM004,MAY,15-May-15,2015,0,Tooth,A,,,Weeks
+EB15GAM012,MAY,15-May-15,2015,0,Tooth,A,,,Weeks
+EB15GAM014,MAY,11-May-15,2015,0,Tooth,A,,,Weeks
+EB15GAM015,MAY,11-May-15,2015,0,Tooth,A,,,Weeks
+EB15GAM021,MAY,3-May-15,2015,0,Tooth,A,,,Weeks
+EB15GAM023,MAY,7-May-15,2015,0,Tooth,A,,,Weeks
+EB15GAM028,MAY,18-May-15,2015,0,Tooth,A,,,Weeks
+EB15GAM032,MAY,19-May-15,2015,0,Tooth,A,,,Weeks
+EB15GAM033,MAY,3-May-15,2015,0,Tooth,A,,,Weeks
+EB19GAM005,Spring,,2019,0,Tooth,A,,,Weeks
+EB19GAM008,APR,19-Apr-19,2019,0,Tooth,A,,,11 months
+EB19GAM011,APR,,2019,0,Tooth,A,,,Weeks
+EB19GAM014,APR,24-Apr-19,2019,0,Tooth,A,,,11 months
+EB19GAM015,MAY,1-May-19,2019,0,Tooth,A,,,Weeks
+EB19GAM016,APR,24-Apr-19,2019,0,Tooth,A,,,11 months
+EB19GAM017,APR,24-Apr-19,2019,0,Tooth,A,,,Weeks
+EB19GAM018,APR,24-Apr-19,2019,0,Tooth,A,,,11 months
+EB19GAM019,APR,24-Apr-19,2019,0,Tooth,A,,,11 months
+EB19GAM022,MAR,15-Mar-19,2019,0,Tooth,A,,,11 months
+EB19GAM031,MAY,8-May-19,2019,0,Tooth,A,,,Weeks
+EB19GAM032,MAY,8-May-19,2019,0,Tooth,A,,,Weeks
+EB19GAM033,MAY,6-May-19,2019,0,Tooth,A,,,Weeks
+EB19PH016,MAY,29-May-19,2019,0,Tooth,A,,,Weeks
+EB12GAM007,APR,20-Apr-12,2012,0,Tooth,A,,,Weeks
+EB12GAM024,MAY,31-May-12,2012,0,Tooth,A,,,Weeks
+EB12HB002,MAY,16-May-12,2012,0,Tooth,A,,,Weeks
+EB15GAM001,Spring,,2015,0,Tooth,A,,,Weeks
+EB15GAM006,Spring,,2015,0,Tooth,A,,,Weeks
+EB15GAM011,Spring,,2015,0,Tooth,A,,,Weeks
+EB15GAM019,Spring,,2015,0,Tooth,A,,,Weeks
