@@ -1,5 +1,5 @@
 # Bearded_CKMR
-Welcome to a github repository housing data and code to conduct close-kin mark-recapture estimation of bearded seals in Alaska.
+Welcome to a github repository housing data, code, and online supplements for conducting a close-kin mark-recapture analysis of bearded seals in
 This repository is associated with the paper 
 
 Using Close-Kin Mark-Recapture Methods to Estimate Demographic Parameters Critical for Managing the Bearded Seal, 
@@ -27,3 +27,12 @@ This produces an environment object "CKMR_sample_data.RData" which is read in by
 
 The analysis itself, including sensitivities, is conducted in the R markdown file "CKMR_modeling.Rmd", calling TMB source code that is 
 located in the /src directory.
+
+## Supplements
+
+We include several supplements relevant to our CKMR analysis in the /supplements folder.  These include
+
+- CleanSamplingDNAProtocols.docx  This file describes our DNA sampling protocols
+- FullSampleListWithAccessionNumbers.csv  This table gives locations and accession numbers of the bearded seal samples used in genotyping
+- GGP_Probabilities.docx  This document describes how the probabilities of grandparent-grandchild kin pairs were derived
+- KinPairs.csv  This table provides sample information for each kin pair match
