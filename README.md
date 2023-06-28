@@ -1,5 +1,6 @@
 # Bearded_CKMR
-Welcome to a github repository housing data, code, and online supplements for conducting a close-kin mark-recapture analysis of bearded seals in
+Welcome to a github repository housing data, code, and online supplements for conducting a close-kin mark-recapture analysis of the Beringia distinct population segment of bearded seals.
+
 This repository is associated with the paper 
 
 Using Close-Kin Mark-Recapture Methods to Estimate Demographic Parameters Critical for Managing the Bearded Seal, 
