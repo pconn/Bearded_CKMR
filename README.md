@@ -37,4 +37,4 @@ We include several supplements relevant to our CKMR analysis in the /supplements
 - Supplement_2.pdf  This file describes our DNA sampling protocols
 - Supplement_3.pdf  This document describes how the probabilities of grandparent-grandchild kin pairs were derived
 - Supplement_4.csv  This large table gives bearded seal genotypes.  Each individual is represented by a row, while each 2 column pairs represents a different locus.  For instance; L252.1 and L252.2 represent the two alleles found at locus 251.  Possible alleles are 'A', 'B' and '0' (null)
-- KinPairs.csv  This table provides sample information for each kin pair match
+- Supplement_5.csv  This table provides sample information for each kin pair match
