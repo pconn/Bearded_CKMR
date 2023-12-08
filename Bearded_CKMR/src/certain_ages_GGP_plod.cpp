@@ -316,6 +316,10 @@ Type objective_function<Type>::operator() ()
 
   //likelihood
   array<Type> LogL_table(2,n_yrs,n_yrs_data,n_yrs,2);
+  Type expected_MHSP = 0;
+  Type expected_PHSP = 0;
+  Type expected_MPOP = 0;
+  Type expected_PPOP = 0;
   Type logl = 0;
   for(int ibi=1;ibi<(n_yrs-1);ibi++){  //start at 1 since PPO,PHS need access to abundance the year before
     for(int ibj=(ibi+1);ibj<std::min(n_yrs,ibi+n_ages);ibj++){
@@ -325,22 +329,29 @@ Type objective_function<Type>::operator() ()
           LogL_table(isi,ibi,idi,ibj,1)=dbinom_kern_log(n_comp_HSGGP_sibidibj(isi,ibi,idi,ibj),n_match_HSGGP_sibidibjmij(isi,ibi,idi,ibj,1),MHS_table(ibi,ibj)+GGP_table(isi,ibi,idi,ibj,1)); //HSPs + GGPs
           logl += dbinom_kern_log(n_comp_HSGGP_sibidibj(isi,ibi,idi,ibj),n_match_HSGGP_sibidibjmij(isi,ibi,idi,ibj,0),PHS_table(ibi,ibj)+GGP_table(isi,ibi,idi,ibj,0)); //HSPs + GGPs
           logl += dbinom_kern_log(n_comp_HSGGP_sibidibj(isi,ibi,idi,ibj),n_match_HSGGP_sibidibjmij(isi,ibi,idi,ibj,1),MHS_table(ibi,ibj)+GGP_table(isi,ibi,idi,ibj,1)); //HSPs + GGPs
+          expected_MHSP += n_comp_HSGGP_sibidibj(isi,ibi,idi,ibj)*(MHS_table(ibi,ibj)+GGP_table(isi,ibi,idi,ibj,1));
+          expected_PHSP += n_comp_HSGGP_sibidibj(isi,ibi,idi,ibj)*(PHS_table(ibi,ibj)+GGP_table(isi,ibi,idi,ibj,0));
         } 
         logl += dbinom_kern_log(n_comp_PPO_bidibj(ibi,idi,ibj),n_match_PPO_bidibj(ibi,idi,ibj),PPO_table(ibi,idi,ibj)); //POPs
         logl += dbinom_kern_log(n_comp_MPO_bidibj(ibi,idi,ibj),n_match_MPO_bidibj(ibi,idi,ibj),MPO_table(ibi,idi,ibj)); //POPs
+        expected_MPOP += n_comp_MPO_bidibj(ibi,idi,ibj)*MPO_table(ibi,idi,ibj);
+        expected_PPOP += n_comp_PPO_bidibj(ibi,idi,ibj)*PPO_table(ibi,idi,ibj);
       }
     }
     for(int isi=0; isi<2; isi++){
       for(int idi=0;idi<n_yrs_data;idi++){
         LogL_table(isi,ibi,idi,ibi,0)=dbinom_kern_log(n_comp_HSGGP_sibidibj(isi,ibi,idi,ibi),n_match_HSGGP_sibidibjmij(isi,ibi,idi,ibi,0),PHS_table(ibi,ibi)); //HSPs equal birth year
         logl += dbinom_kern_log(n_comp_HSGGP_sibidibj(isi,ibi,idi,ibi),n_match_HSGGP_sibidibjmij(isi,ibi,idi,ibi,0),PHS_table(ibi,ibi)); //HSPs equal birth year
+        expected_PHSP += n_comp_HSGGP_sibidibj(isi,ibi,idi,ibi)*(PHS_table(ibi,ibi));  //Maternal half-sibs can't have same birth year; also GGP not possible
       }
     }
   }
+  //paternal half sibs allowed in final year of study since the bred the previous year
   for(int isi=0; isi<2; isi++){
     for(int idi=0;idi<n_yrs_data;idi++){
       LogL_table(isi,n_yrs-1,idi,n_yrs-1,0)=dbinom_kern_log(n_comp_HSGGP_sibidibj(isi,n_yrs-1,idi,n_yrs-1),n_match_HSGGP_sibidibjmij(isi,n_yrs-1,idi,n_yrs-1,0),PHS_table(n_yrs-1,n_yrs-1)); //HSPs
       logl += dbinom_kern_log(n_comp_HSGGP_sibidibj(isi,n_yrs-1,idi,n_yrs-1),n_match_HSGGP_sibidibjmij(isi,n_yrs-1,idi,n_yrs-1,0),PHS_table(n_yrs-1,n_yrs-1)); //HSPs
+      expected_PHSP += n_comp_HSGGP_sibidibj(isi,n_yrs-1,idi,n_yrs-1)*PHS_table(n_yrs-1,n_yrs-1);
     }
   }
   Type logl1= logl;
@@ -387,6 +398,11 @@ Type objective_function<Type>::operator() ()
   REPORT(n_match_PPO_bidibj);
   REPORT(n_comp_MPO_bidibj);
   REPORT(n_match_MPO_bidibj);
+  
+  REPORT(expected_MHSP);
+  REPORT(expected_PHSP);
+  REPORT(expected_MPOP);
+  REPORT(expected_PPOP);
 
 
   

@@ -1,7 +1,7 @@
 // TMB model for bearded seal CKMR w/ known ages
 //author: Paul Conn
 #include <TMB.hpp>
-//#include <Eigen/Eigenvalues>
+#include <Eigen/Eigenvalues>
 //#include <Eigen/Eigensolver>
 
 template<class Type>
@@ -215,7 +215,6 @@ vector<Type> get_S_RAW(Type eta1, Type eta2, Type eta3, int n_ages){
   return S_a;
 }
 
-
 template<class Type>
 Type objective_function<Type>::operator() ()
 {
@@ -229,7 +228,7 @@ Type objective_function<Type>::operator() ()
   DATA_INTEGER( n_ages );
   DATA_VECTOR( Male_mat );  //male maturity-at-age vector
   DATA_VECTOR(Fem_fec);  //female fecundity-at-age vector
-  DATA_MATRIX(A);  //Leslie matrix model (survival will be replaced each likelihood evaluation)
+  DATA_MATRIX(A);  //Leslie matrix model (survival will be replaced in each likelihood evaluation)
   DATA_ARRAY(n_match_HSGGP_sibidibjmij); // half sib + GGP matches by older animal sex, birth year of oldest, death year old oldest, birth year of youngest, and whether they share mtDNA or not
   DATA_ARRAY(n_comp_HSGGP_sibidibj); // number of half sib + GGP comparisons 
   DATA_ARRAY(n_match_MPO_bidibj); // maternal parent-offspring matches organized by birth of mother, death of mother, birth of offspring
@@ -264,23 +263,44 @@ Type objective_function<Type>::operator() ()
   S_a(0)=Surv_a(0);
   for(int iage=1;iage<n_ages;iage++)S_a(iage)=Surv_a(iage)/(Surv_a(iage-1));  //annual survival-at-age vector
   
+  matrix<Type> A2 = A;
+  
   //fill in leslie matrix with survival values
   for(int iage=0; iage<(n_ages-1); iage++){
     A(iage+1,iage)=S_a(iage); //assume post-breeding census; fecundity already filled in and assumed fixed
   }
-
+  //Eigen::Matrix<double, 39, 39> A2;
+  // Eigen::SparseMatrix<Type> A2( 40, 40 );
+  // for(int iage=0; iage<n_ages; iage++){
+  //   for(int iage2=0; iage2<n_ages; iage2++){
+  //     A2.coeffRef(iage,iage2)=A(iage,iage2);
+  //   }
+  // }
+    
   //fill in N-at-age matrix
+  //SelfAdjointEigenSolver<Matrix<Type,Dynamic,Dynamic> > es(A2); 
+  //matrix<Type> V = es.eigenvectors().real();
+  //vector<Type> Ev = es.eigenvalues().real();
+  //SelfAdjointEigenSolver<Matrix<Type,Dynamic,Dynamic> > es2(A); 
+  //matrix<Type> V2 = es2.eigenvectors();
+
+  
   matrix<Type> N_a(n_yrs,n_ages);
+  
   //need some stable stage stuff for year 0
   Type min_n0=10000.0;
   N_a(0,0)=min_n0+exp(n0_log); //try to prevent numerical issues w/ pop crashing during optimization
-  Type lam_power=1.0;
   for(int iage=1; iage<n_ages;iage++){  //stable stage calc using expected lambda
-    lam_power = lam_power*lambda_expect;  
-    N_a(0,iage)=N_a(0,iage-1)*S_a(iage-1)/lam_power;
+     N_a(0,iage)=N_a(0,iage-1)*S_a(iage-1); // /lam_power;
   }
-  for(int iyr=1; iyr<n_yrs;iyr++)N_a.row(iyr)=A * N_a.row(iyr-1).transpose();  //double check!!!!
-
+  for(int iyr=1; iyr<n_yrs;iyr++)N_a.row(iyr)=A * N_a.row(iyr-1).transpose();  
+  
+  //since eigen stuff doesn't give the right answer, I'm just using the age structure in the 
+  //the final year to reset stable age distribution in first year
+  vector<Type> Stable_stage = N_a.row(n_ages-1)/N_a(n_ages-1,0);
+  for(int iage=1; iage<n_ages;iage++)N_a(0,iage)=N_a(0,0)*Stable_stage(iage);
+  for(int iyr=1; iyr<n_yrs;iyr++)N_a.row(iyr)=A * N_a.row(iyr-1).transpose();  
+  
   //fill probability lookup tables
   array<Type> MPO_table(n_yrs,n_yrs_data,n_yrs); //dimensions are parent birth year, parent death year, offspring birth year
   array<Type> PPO_table(n_yrs,n_yrs_data,n_yrs); //dimensions are parent birth year, parent death year, offspring birth year
@@ -319,6 +339,10 @@ Type objective_function<Type>::operator() ()
   //likelihood
   array<Type> LogL_table(2,n_yrs,n_yrs_data,n_yrs,2);
   Type logl = 0;
+  Type expected_MHSP = 0;
+  Type expected_PHSP = 0;
+  Type expected_MPOP = 0;
+  Type expected_PPOP = 0;
   for(int ibi=1;ibi<(n_yrs-1);ibi++){  //start at 1 since PPO,PHS need access to abundance the year before
     for(int ibj=(ibi+1);ibj<std::min(n_yrs,ibi+n_ages);ibj++){
       for(int idi = 0; idi<n_yrs_data; idi++){
@@ -327,15 +351,20 @@ Type objective_function<Type>::operator() ()
           LogL_table(isi,ibi,idi,ibj,1)=dbinom_kern_log(n_comp_HSGGP_sibidibj(isi,ibi,idi,ibj),n_match_HSGGP_sibidibjmij(isi,ibi,idi,ibj,1),MHS_table(ibi,ibj)+GGP_table(isi,ibi,idi,ibj,1)); //HSPs + GGPs
           logl += dbinom_kern_log(n_comp_HSGGP_sibidibj(isi,ibi,idi,ibj),n_match_HSGGP_sibidibjmij(isi,ibi,idi,ibj,0),PHS_table(ibi,ibj)+GGP_table(isi,ibi,idi,ibj,0)); //HSPs + GGPs
           logl += dbinom_kern_log(n_comp_HSGGP_sibidibj(isi,ibi,idi,ibj),n_match_HSGGP_sibidibjmij(isi,ibi,idi,ibj,1),MHS_table(ibi,ibj)+GGP_table(isi,ibi,idi,ibj,1)); //HSPs + GGPs
+          expected_MHSP += n_comp_HSGGP_sibidibj(isi,ibi,idi,ibj)*(MHS_table(ibi,ibj)+GGP_table(isi,ibi,idi,ibj,1));
+          expected_PHSP += n_comp_HSGGP_sibidibj(isi,ibi,idi,ibj)*(PHS_table(ibi,ibj)+GGP_table(isi,ibi,idi,ibj,0));
         } 
         logl += dbinom_kern_log(n_comp_PPO_bidibj(ibi,idi,ibj),n_match_PPO_bidibj(ibi,idi,ibj),PPO_table(ibi,idi,ibj)); //POPs
         logl += dbinom_kern_log(n_comp_MPO_bidibj(ibi,idi,ibj),n_match_MPO_bidibj(ibi,idi,ibj),MPO_table(ibi,idi,ibj)); //POPs
+        expected_MPOP += n_comp_MPO_bidibj(ibi,idi,ibj)*MPO_table(ibi,idi,ibj);
+        expected_PPOP += n_comp_PPO_bidibj(ibi,idi,ibj)*PPO_table(ibi,idi,ibj);
       }
     }
     for(int isi=0; isi<2; isi++){
       for(int idi=0;idi<n_yrs_data;idi++){
         LogL_table(isi,ibi,idi,ibi,0)=dbinom_kern_log(n_comp_HSGGP_sibidibj(isi,ibi,idi,ibi),n_match_HSGGP_sibidibjmij(isi,ibi,idi,ibi,0),PHS_table(ibi,ibi)); //HSPs equal birth year
         logl += dbinom_kern_log(n_comp_HSGGP_sibidibj(isi,ibi,idi,ibi),n_match_HSGGP_sibidibjmij(isi,ibi,idi,ibi,0),PHS_table(ibi,ibi)); //HSPs equal birth year
+        expected_PHSP += n_comp_HSGGP_sibidibj(isi,ibi,idi,ibi)*(PHS_table(ibi,ibi));  //Maternal half-sibs can't have same birth year; also GGP not possible
       }
     }
   }
@@ -343,6 +372,7 @@ Type objective_function<Type>::operator() ()
     for(int idi=0;idi<n_yrs_data;idi++){
       LogL_table(isi,n_yrs-1,idi,n_yrs-1,0)=dbinom_kern_log(n_comp_HSGGP_sibidibj(isi,n_yrs-1,idi,n_yrs-1),n_match_HSGGP_sibidibjmij(isi,n_yrs-1,idi,n_yrs-1,0),PHS_table(n_yrs-1,n_yrs-1)); //HSPs
       logl += dbinom_kern_log(n_comp_HSGGP_sibidibj(isi,n_yrs-1,idi,n_yrs-1),n_match_HSGGP_sibidibjmij(isi,n_yrs-1,idi,n_yrs-1,0),PHS_table(n_yrs-1,n_yrs-1)); //HSPs
+      expected_PHSP += n_comp_HSGGP_sibidibj(isi,n_yrs-1,idi,n_yrs-1)*PHS_table(n_yrs-1,n_yrs-1);
     }
   }
   Type logl1= logl;
@@ -392,7 +422,14 @@ Type objective_function<Type>::operator() ()
   REPORT(n_comp_MPO_bidibj);
   REPORT(n_match_MPO_bidibj);
 
+  REPORT(expected_MHSP);
+  REPORT(expected_PHSP);
+  REPORT(expected_MPOP);
+  REPORT(expected_PPOP);
+  //REPORT(V);
+  //REPORT(Ev);
+  //REPORT(A2);
+  // REPORT(V2)
 
-  
   return -logl;
 }

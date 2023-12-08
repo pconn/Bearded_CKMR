@@ -11,7 +11,7 @@ A. Kilian, A.R. Lang, A. Bryan, and R. Stimmelmayr.  To be submitted to Evolutio
 The Bearded_CKMR/data directory includes data necessary to conduct CKMR analysis using bearded seal data.
 The files there include
 
-- bearded_genos.csv: This file is a comma delimited text file consisting of a 1484 x 5139 table of genotypes for 1484 spotted seals.  The first column is an individual identifier, while remaining columns give alleles.  The column names represent combinations of loci and allele number (e.g., L10006.1 and L10006.2 represent alleles 1 and 2 at locus L10006, respectively).  The possible alleles at each loci are 'A', 'B', or null ('0')
+- bearded_genos.csv: This file is a comma delimited text file consisting of a 1484 x 5139 table of genotypes for 1484 bearded seals.  The first column is an individual identifier, while remaining columns give alleles.  The column names represent combinations of loci and allele number (e.g., L10006.1 and L10006.2 represent alleles 1 and 2 at locus L10006, respectively).  The possible alleles at each loci are 'A', 'B', or null ('0')
 - Maturity.csv: This table provides information on sexual maturity of ice seals in Alaska (from Conn and Trukhanova 2023)
 - MHS_matches.csv: This table defines maternal half-sibling / grandparent-grandchild pairs; the row indices provided index different rows in Samples.csv
 - PHS_matches.csv: Same as above, but for paternal half-sibling pairs.
