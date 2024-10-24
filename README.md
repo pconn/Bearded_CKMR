@@ -3,7 +3,7 @@ Welcome to a github repository housing data, code, and online supplements for co
 
 This repository is associated with the paper 
 
-"Estimating Demographic Parameters for Bearded Seals, Erignathus barbatus, in Alaska using Close-Kin Mark-Recapture Method" by B.D. Taras, P.B. Conn, M.V. Bravington L. Quakenbush, 
+"Estimating Demographic Parameters for Bearded Seals, Erignathus barbatus, in Alaska using Close-Kin Mark-Recapture Methods" by B.D. Taras, P.B. Conn, M.V. Bravington L. Quakenbush, 
 A. Kilian, A.R. Lang, A. Bryan, and R. Stimmelmayr.  Evolutionary Applications (In press).
 
 ## Data
