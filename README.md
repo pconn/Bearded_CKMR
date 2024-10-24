@@ -3,9 +3,8 @@ Welcome to a github repository housing data, code, and online supplements for co
 
 This repository is associated with the paper 
 
-Using Close-Kin Mark-Recapture Methods to Estimate Demographic Parameters Critical for Managing the Bearded Seal, 
-Erignathus barbatus, a Harvested Species Listed under the U.S. Endangered Species Act by B.D. Taras, P.B. Conn, M.V. Bravington L. Quakenbush, 
-A. Kilian, A.R. Lang, A. Bryan, and R. Stimmelmayr.  To be submitted to Evolutionary Applications.
+"Estimating Demographic Parameters for Bearded Seals, Erignathus barbatus, in Alaska using Close-Kin Mark-Recapture Method" by B.D. Taras, P.B. Conn, M.V. Bravington L. Quakenbush, 
+A. Kilian, A.R. Lang, A. Bryan, and R. Stimmelmayr.  Evolutionary Applications (In press).
 
 ## Data
 The Bearded_CKMR/data directory includes data necessary to conduct CKMR analysis using bearded seal data.
@@ -29,12 +28,4 @@ This produces an environment object "CKMR_sample_data.RData" which is read in by
 The analysis itself, including sensitivities, is conducted in the R markdown file "CKMR_modeling.Rmd", calling TMB source code that is 
 located in the /src directory.
 
-## Supplements
 
-We include several supplements relevant to our CKMR analysis in the /supplements folder.  These include
-
-- Supplement_1.csv  This table gives locations and accession numbers of the bearded seal samples used in genotyping
-- Supplement_2.pdf  This file describes our DNA sampling protocols
-- Supplement_3.pdf  This document describes how the probabilities of grandparent-grandchild kin pairs were derived
-- Supplement_4.csv  This large table gives bearded seal genotypes.  Each individual is represented by a row, while each 2 column pairs represents a different locus.  For instance; L252.1 and L252.2 represent the two alleles found at locus 251.  Possible alleles are 'A', 'B' and '0' (null)
-- Supplement_5.csv  This table provides sample information for each kin pair match
